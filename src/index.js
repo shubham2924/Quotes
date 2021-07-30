@@ -9,14 +9,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <ThemeProvider> */}
-      {/* <main> */}
-       
-          {/* <Toggle /> */}
-        
         <App />
-      {/* </main> */}
-    {/* </ThemeProvider> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
