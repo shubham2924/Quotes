@@ -12,7 +12,7 @@ function Quote() {
   }, []);
 
   const getQuote = () => {
-    let url = `https://quote-garden.herokuapp.com/api/v3/quotes/random`;
+    let url = `https://quotesapi.onrender.com/api/v3/quotes/random`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
