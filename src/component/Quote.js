@@ -23,7 +23,7 @@ function Quote() {
         console.log(randomQuote.quoteAuthor);
         setQuote(randomQuote.quoteText);
         setAuthor(randomQuote.quoteAuthor);
-        setGenre(randomQuote.quoteGenre);
+        setGenre(randomQuote.quoteGenre[0]);
       });
   };
 
