@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { CopyToClipboard } from "pivotal-ui/react/copy-to-clipboard";
 import { ThemeProvider } from './themeContext';
 import Toggle from './themeToggle';
-import {ShimmerBadge,ShimmerText} from "react-shimmer-effects";
+import {ShimmerBadge,ShimmerText } from "react-shimmer-effects";
 import '../App.css'
 function Quote() {
   const [quoteText, setQuote] = useState("");
@@ -62,6 +62,9 @@ function Quote() {
                 
               </div>
               <div className=" absolute bottom-0 right-0 h-10 w-10">
+                {loading?
+                  <ShimmerBadge width={25} />
+                       :
                   <CopyToClipboard  text={quoteText}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -78,6 +81,7 @@ function Quote() {
                   />
                 </svg>
               </CopyToClipboard>
+                }
               </div>
             </div>
           </div>
