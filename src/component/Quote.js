@@ -53,8 +53,8 @@ function Quote() {
                     :`"${quoteText}"`}
                     
                     </div>
-                  <div class="flex flex-col text-sm text-gray-500">
-                    {loading?<ShimmerBadge width={120} />:<span class="mb-1"><i>-by: {quoteAuthor}</i></span>}
+                  <div class="flex flex-col text-sm text-gray-500 quote-author">
+                    {loading?<ShimmerBadge width={120} />:<span class="mb-1 horz-scroll"><i>-by: {quoteAuthor}</i></span>}
                     
                   </div>
                   

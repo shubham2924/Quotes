@@ -5,3 +5,14 @@
   width: auto;
   text-align: justify;
 }
+@media only screen and (max-width: 600px) {
+  .horz-scroll{
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    max-width: 200px;
+  }
+}
+.quote-author{
+  padding-top: 15px;
+}
