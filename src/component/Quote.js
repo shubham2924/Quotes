@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { CopyToClipboard } from "pivotal-ui/react/copy-to-clipboard";
 import { ThemeProvider } from './themeContext';
 import Toggle from './themeToggle';
-import { ShimmerButton,ShimmerBadge,ShimmerText} from "react-shimmer-effects";
+import {ShimmerBadge,ShimmerText} from "react-shimmer-effects";
 import '../App.css'
 function Quote() {
   const [quoteText, setQuote] = useState("");
@@ -21,9 +21,6 @@ function Quote() {
       .then((data) => {
         let dataQuotes = data.data;
         let randomQuote = dataQuotes[0];
-        console.log(randomQuote);
-        console.log(randomQuote.quoteText);
-        console.log(randomQuote.quoteAuthor);
         setQuote(randomQuote.quoteText);
         setAuthor(randomQuote.quoteAuthor);
         setGenre(randomQuote.quoteGenre[0]);
@@ -87,8 +84,6 @@ function Quote() {
           <div className="flex items-center mb-10">
             {loading?
             <div className="flex-grow  px-4 py-2 m-2">
-            {/* <p>wait</p> */}
-            {/* <ShimmerButton size="md" /> */}
             <ShimmerBadge width={120} />
             </div>
             :
@@ -97,11 +92,6 @@ function Quote() {
                 {quoteGenre}
               </span>
             </div>}
-            {/* // <div className="flex-grow  px-4 py-2 m-2">
-            //   <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-blue-200 uppercase last:mr-0 mr-1">
-            //     {quoteGenre}
-            //   </span>
-            // </div> */}
             
             <div className="flex-grow text-right px-4 py-2 m-2 ">
               
