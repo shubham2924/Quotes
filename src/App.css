@@ -1,0 +1,7 @@
+.scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 150px;
+  width: auto;
+  text-align: justify;
+}

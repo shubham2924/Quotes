@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { CopyToClipboard } from "pivotal-ui/react/copy-to-clipboard";
 import { ThemeProvider } from './themeContext';
 import Toggle from './themeToggle';
+import { ShimmerButton,ShimmerBadge,ShimmerText} from "react-shimmer-effects";
+import '../App.css'
 function Quote() {
   const [quoteText, setQuote] = useState("");
   const [quoteAuthor, setAuthor] = useState("");
   const [quoteGenre, setGenre] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getQuote();
@@ -24,10 +27,12 @@ function Quote() {
         setQuote(randomQuote.quoteText);
         setAuthor(randomQuote.quoteAuthor);
         setGenre(randomQuote.quoteGenre[0]);
+        setLoading(false)
       });
   };
 
   const handleClick = () => {
+    setLoading(true)
     getQuote();
   };
   
@@ -42,12 +47,18 @@ function Quote() {
             </div>
           <h2 className="dark:text-blue-200 text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate md:text-center">Quotes Garden</h2>
             <div class="flex flex-col mb-8"></div>
-            <div class="relative bg-gray-100 rounded-lg">
+            <div class="relative bg-gray-0 rounded-lg">
               <div class="py-4 px-4">
                 <div class="flex flex-col">
-                  <h1 class="dark:red text-lg font-semibold mb-3">" {quoteText}"</h1>
+                  <div class="dark:red text-lg font-semibold mb-3 scroll">
+                    {loading?
+                    <ShimmerText line={4} gap={15} />
+                    :`"${quoteText}"`}
+                    
+                    </div>
                   <div class="flex flex-col text-sm text-gray-500">
-                    <span class="mb-1">- {quoteAuthor}</span>
+                    {loading?<ShimmerBadge width={120} />:<span class="mb-1"><i>-by: {quoteAuthor}</i></span>}
+                    
                   </div>
                   
                 </div>
@@ -74,11 +85,23 @@ function Quote() {
             </div>
           </div>
           <div className="flex items-center mb-10">
+            {loading?
+            <div className="flex-grow  px-4 py-2 m-2">
+            {/* <p>wait</p> */}
+            {/* <ShimmerButton size="md" /> */}
+            <ShimmerBadge width={120} />
+            </div>
+            :
             <div className="flex-grow  px-4 py-2 m-2">
               <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-blue-200 uppercase last:mr-0 mr-1">
                 {quoteGenre}
               </span>
-            </div>
+            </div>}
+            {/* // <div className="flex-grow  px-4 py-2 m-2">
+            //   <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-blue-200 uppercase last:mr-0 mr-1">
+            //     {quoteGenre}
+            //   </span>
+            // </div> */}
             
             <div className="flex-grow text-right px-4 py-2 m-2 ">
               
