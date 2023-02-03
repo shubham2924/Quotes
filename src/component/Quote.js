@@ -8,7 +8,7 @@ function Quote() {
   const [quoteText, setQuote] = useState("");
   const [quoteAuthor, setAuthor] = useState("");
   const [quoteGenre, setGenre] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getQuote();
