@@ -4,6 +4,7 @@
   height: 150px;
   width: auto;
   text-align: justify;
+  padding-right: 10px;
 }
 @media only screen and (max-width: 600px) {
   .horz-scroll{
@@ -28,7 +29,10 @@
   background: gray; 
   border-radius: 7px;
 }
-  
+
+.quote-card{
+  width: 512px;
+}
 }
 .quote-author{
   padding-top: 15px;
