@@ -107,7 +107,8 @@ function Quote() {
 
                 <div className="flex-grow text-right px-4 py-2 m-2 ">
                   <button
-                    onClick={handleClick}
+                    style={loading ? { cursor: "not-allowed" } : {}}
+                    onClick={loading ? () => {} : handleClick}
                     className="bg-indigo-600 hover:bg-indigo-800 text-white font-semibold py-2 px-4 rounded inline-flex items-center"
                   >
                     <svg
